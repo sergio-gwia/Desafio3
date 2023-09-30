@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Manzanas",
+    "description": "De las Buenas",
+    "price": 350,
+    "thumbnail": "img.jpg",
+    "code": 434345,
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "title": "Peras",
+    "description": "De las Buenas",
+    "price": 350,
+    "thumbnail": "img.jpg",
+    "code": 543454,
+    "stock": 30
+  },
+  {
+    "id": 5,
+    "title": "Sandias",
+    "description": "De las Buenas",
+    "price": 350,
+    "thumbnail": "img.jpg",
+    "code": 5656765,
+    "stock": 30
+  }
+]
