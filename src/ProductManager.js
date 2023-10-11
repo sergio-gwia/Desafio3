@@ -86,14 +86,14 @@ class ProductManager {
     
         let products = await this.getProducts();
         
-        let existingProduct = products.find(prod => prod.code === product.code && prod.id !== id);
-    
+        let existingProduct = products.find(prod => prod.code == product.code && prod.id !== id);
+        console.log(existingProduct)
         if (existingProduct) {
             console.log('Ya existe un producto con ese código');
             return null;
         }
     
-        let indice = products.findIndex(prod => prod.id === id);
+        let indice = products.findIndex(prod => prod.id == id);
         if (indice !== -1) {
             products[indice].title = product.title;
             products[indice].description = product.description;
@@ -108,18 +108,28 @@ class ProductManager {
         return products[indice];
     }
     
-    
-
     async deleteProduct(id){
-        let products = await this.getProducts()
-        let indice = products.findIndex(product => product.id === id)
-        if (indice !== -1) {
-            products.splice(indice, 1)
+        console.log(id)
+        try {
+            let products = await this.getProducts()
+            
+            let indice = products.findIndex(product => product.id == id)
+            console.log(indice)
+            if (indice !== -1) {
+                products.splice(indice, 1)
+                await fs.promises.writeFile(this.path, JSON.stringify(products))
+                console.log(`Producto Eliminado`);
+                return true;
+            } else {
+                console.log(`Producto no encontrado`);
+                return false;
+            }
+        } catch (error) {
+            console.error(error); 
+            throw new Error("Error al eliminar el producto");
         }
-        await fs.promises.writeFile(this.path, JSON.stringify(products))
-        return console.log(`Producto Eliminado`);
     }
-    
+
 }
 
 // const manager = new ProductManager("Products.json")
