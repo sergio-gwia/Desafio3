@@ -9,6 +9,7 @@ const manager = new ProductManager("Products.json")
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+app.use(express.static(__dirname + "/public"));
 
 app.use("/api/products", ProductsRouter)
 app.use("/api/carts", CartRouter)

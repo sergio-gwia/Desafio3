@@ -1,5 +1,5 @@
 import  { Router } from "express"
-import ProductManager from "../ProductManager.js"
+import ProductManager from "../manager/ProductManager.js"
 
 const manager = new ProductManager("Products.json")
 
