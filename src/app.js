@@ -1,11 +1,9 @@
 import express from "express";
-import ProductManager from "./ProductManager.js"
+import __dirname from "./utils.js";
 import ProductsRouter from "./routes/productsRouter.js";
 import CartRouter from "./routes/cartsRouter.js";
 
 const app = express();
-
-const manager = new ProductManager("Products.json")
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
